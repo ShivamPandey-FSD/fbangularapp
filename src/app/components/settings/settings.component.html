@@ -1,0 +1,116 @@
+<div class="row">
+  <div fxFlex="15%"></div>
+  <div fxFlex="15%">
+    <app-profile></app-profile>
+  </div>
+  <div fxFlex="3%"></div>
+  <div fxFlex="40%">
+    <div *ngIf="isLoading">
+      <mat-card class="card-style">
+        <div style="display: flex; justify-content: center; background: white;">
+          <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </mat-card>
+    </div>
+    <div *ngIf="!isLoading">
+      <mat-card class="card-style">
+        <mat-tab-group [formGroup]="form" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id" />
+          <mat-tab label="Profile">
+            <div class="tab-content">
+              <div fxLayout="row">
+                <mat-form-field fxFlex="45%">
+                  <input matInput placeholder="First Name" formControlName="firstName">
+                  <mat-error *ngIf="isFieldInvalid('firstName')">Please enter first name</mat-error>
+                </mat-form-field>
+                <div fxFlex="10%"></div>
+                <mat-form-field fxFlex="45%">
+                  <input matInput placeholder="Last Name" formControlName="lastName">
+                  <mat-error *ngIf="isFieldInvalid('lastName')">Please enter last name</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row">
+                <mat-form-field fxFlex="45%">
+                  <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div fxFlex="10%"></div>
+                <mat-form-field fxFlex="45%">
+                  <input matInput placeholder="Email" formControlName="email" readonly>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row">
+                <mat-form-field fxFlex="45%">
+                  <input matInput placeholder="Gender" formControlName="gender" readonly>
+                </mat-form-field>
+                <div fxFlex="10%"></div>
+                <mat-form-field fxFlex="45%">
+                  <input matInput placeholder="Phone" formControlName="phone">
+                  <mat-error *ngIf="isFieldInvalid('phone')">Please enter valid phone number</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row">
+                <mat-form-field fxFlex="45%">
+                  <mat-select placeholder="Country" formControlName="country">
+                    <mat-option *ngFor="let country of countries" [value]="country">
+                      {{ country }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Please select country</mat-error>
+                </mat-form-field>
+                <div fxFlex="10%"></div>
+                <mat-form-field fxFlex="45%">
+                  <mat-select placeholder="State" formControlName="state">
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{ state }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Please select state</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row">
+                <mat-form-field fxFlex="45%">
+                  <mat-select placeholder="City" formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city">
+                      {{ city }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Please select city</mat-error>
+                </mat-form-field>
+                <div fxFlex="10%"></div>
+                <mat-form-field fxFlex="50%">
+                  <input matInput placeholder="Profession" formControlName="profession">
+                  <mat-error *ngIf="isFieldInvalid('profession')">Please enter profession</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" class="button">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Change Password">
+            <div class="tab-content">
+              <div fxLayout="row">
+                <mat-form-field fxFlex="50%">
+                  <input matInput placeholder="New Password" formControlName="password" type="password">
+                  <mat-error *ngIf="isFieldInvalid('password')">Password should contain minimum 8 characters</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row">
+                <mat-form-field fxFlex="50%">
+                  <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+                  <mat-error *ngIf="isFieldInvalid('confirmPassword')">Confirm Password and password not match</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" class="button">
+                <button mat-raised-button color="primary" (click)="changePassword()">Save</button>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+    </div>
+  </div>
+  <div fxFlex="20%"></div>
+</div>

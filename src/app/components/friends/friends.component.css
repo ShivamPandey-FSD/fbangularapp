@@ -1,0 +1,41 @@
+.show-friends {
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.show-friend-header {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+.mat-raised-button {
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+.profession {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: grey;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.friend-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.card-style {
+  margin-top: 60px;
+}

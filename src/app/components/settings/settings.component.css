@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One');
+
+.card-style {
+  height: 415px;
+  margin-top: 60px;
+}
+
+.tab-content {
+  margin-top: 2%;
+  font-family: 'Patua One', sans-serif;
+  color: black;
+  font-size: 15px;
+}
+
+::ng-deep .mat-tab-label {
+  width: 50%;
+  background: #000000;
+  font-family: 'Patua One', sans-serif;
+  color: white;
+  border: 1px solid white;
+  opacity: 0;
+}
+
+.mat-raised-button {
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+mat-form-field, mat-option, mat-select {
+  font-family: 'Patua One', sans-serif;
+}
+
+mat-tab-group {
+  width: -webkit-fill-available;
+}

@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Passion+One');
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import '~font-awesome/css/all.css';
+
+body {
+  margin: 0;
+  background-color: #F8F8FF;
+  height: 100%;
+  min-height: 37em;
+  background-size: cover;
+  width: auto;
+}
+
+.success-snackbar {
+  background-color: #007E33;
+}
+
+.warning-snackbar {
+  background-color: #FF8800;
+}
+
+.error-snackbar {
+  background-color: #CC0000;
+}
+
+.header-cell {
+  font-weight: bold;
+}
+
+.dialog-title-hr {
+  border: 0;
+  height: 3px;
+  margin-top: -15px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.res-table-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-label {
+    width: 160px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0px 20px 0px 20px;
+  }
+
+  .mat-cell {
+    font-size: 17px;
+    align-items: flex-end;
+  }
+
+  .mat-cell:first-of-type, .mat-header-cell:first-of-type {
+    padding-left: 0px;
+  }
+}

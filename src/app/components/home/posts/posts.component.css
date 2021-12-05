@@ -1,0 +1,92 @@
+.create-post {
+  border-radius: 8px;
+  margin-top: 60px;
+}
+
+.create-post-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: gray;
+}
+
+.card-full-width {
+  width: 100%;
+}
+
+.mat-raised-button {
+  border-radius: 0px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 0px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+mat-card-actions {
+  margin-right: 0px;
+}
+
+.image-upload {
+  display: none;
+}
+
+.camera-position {
+  color: gray;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.nopost-card {
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.show-posts {
+  margin-top: 10px;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.show-posts-header {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.profession {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: grey;
+  font-weight: 700;
+}
+
+.custom-icon {
+  color: grey;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.timer {
+  float: right;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.user-profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.base-line {
+  border: 2px solid grey;
+}
+

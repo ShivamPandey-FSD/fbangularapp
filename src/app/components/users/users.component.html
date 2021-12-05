@@ -1,0 +1,82 @@
+<div class="row">
+  <div fxFlex="15%"></div>
+  <div fxFlex="15%">
+    <app-profile></app-profile>
+  </div>
+  <div fxFlex="3%"></div>
+  <div fxFlex="60%">
+    <div *ngIf="noUsers">
+      <mat-card class="card-style" style="text-align: center;">
+        <mat-card-content>
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          <p class="card-text profession">No user registered till now...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="isLoading">
+      <mat-card class="card-style">
+        <div style="display: flex; justify-content: center; background: white;">
+          <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </mat-card>
+    </div>
+    <div *ngIf="!isLoading && !noUsers" class="card-style">
+      <div class="res-table-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Name</mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">Name</span>
+              {{ row.firstName + ' ' + row.lastName }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="city">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">City</mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">City</span>
+              {{ row.city }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Phone</mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">Phone</span>
+              {{ row.phone }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Email</mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">Email</span>
+              {{ row.email }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="profession">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Profession</mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">Profession</span>
+              {{ row.profession }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Actions</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span *ngIf="row.isActive">
+                <a (click)="onDisableUserClick(row)">
+                  <i class="fa fa-toggle-on"></i>
+                  Active
+                </a>
+              </span>
+              <span *ngIf="!row.isActive">
+                <a (click)="onEnableUserClick(row)">
+                  <i class="fa fa-toggle-off"></i>
+                  Blocked
+                </a>
+              </span>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="10%"></div>
+</div>
+

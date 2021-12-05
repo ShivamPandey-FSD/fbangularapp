@@ -1,0 +1,41 @@
+<div *ngIf="(isUserLoggedIn | async); then authenticatedUser else guest"></div>
+<ng-template #authenticatedUser>
+    <div *ngIf="(isAdmin | async); then admin else user"></div>
+    <ng-template #admin>
+        <mat-toolbar color="primary">
+            <span class="appName">FRIENDSBOOK</span>
+            <span class="spacer"></span>
+            <a mat-button routerLink="/dashboard">HOME</a>
+            <a mat-button routerLink="/users">USERS</a>
+            <a mat-button routerLink="/network">NETWORK</a>
+            <a mat-button routerLink="/friends">FRIENDS</a>
+            <a mat-button routerLink="/settings">SETTINGS</a>
+            <button type="submit" mat-raised-button color="primary" class="logout-btn" (click)="onLogoutClick()">
+                <b>LOGOUT</b>
+            </button>
+        </mat-toolbar>
+    </ng-template>
+    <ng-template #user>
+        <mat-toolbar color="primary">
+            <span class="appName">FRIENDSBOOK</span>
+            <span class="spacer"></span>
+            <a mat-button routerLink="/dashboard">HOME</a>
+            <a mat-button routerLink="/network">NETWORK</a>
+            <a mat-button routerLink="/friends">FRIENDS</a>
+            <a mat-button routerLink="/settings">SETTINGS</a>
+            <button type="submit" mat-raised-button color="primary" class="logout-btn" (click)="onLogoutClick()">
+                <b>LOGOUT</b>
+            </button>
+        </mat-toolbar>
+    </ng-template>
+</ng-template>
+<ng-template #guest>
+    <mat-toolbar color="primary" class="fixed-header">
+        <span class="appName">FRIENDSBOOK</span>
+        <span class="spacer"></span>
+        <a mat-button routerLink="/register">REGISTER</a>
+        <a mat-button routerLink="/login">LOGIN</a>
+    </mat-toolbar>
+</ng-template>
+
+<router-outlet></router-outlet>

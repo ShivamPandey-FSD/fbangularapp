@@ -1,0 +1,49 @@
+<div class="row">
+  <div fxFlex="15%"></div>
+  <div fxFlex="15%">
+    <app-profile></app-profile>
+  </div>
+  <div fxFlex="3%"></div>
+  <div fxFlex="40%">
+    <div *ngIf="noFriends">
+      <mat-card class="card-style" style="text-align: center;">
+        <mat-card-content>
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          <p class="card-text profession">You do not have any friends yet! Make some friends...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="isLoading">
+      <mat-card class="card-style">
+        <div style="display: flex; justify-content: center; background: white;">
+          <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </mat-card>
+    </div>
+    <div class="card-style">
+      <div *ngFor="let friend of friends">
+        <mat-card class="show-friends">
+          <div fxLayout="row">
+            <span fxFlex="15%" fxLayoutAlign="center center">
+              <img [src]="friend.friendIcon" class="friend-photo">
+            </span>
+            <span fxFlex="50%">
+              <div class="show-friend-header">{{ friend.firstName }} {{ friend.lastName }}</div>
+              <div class="profession">{{ friend.profession }}</div>
+            </span>
+            <span fxFlex="50%" fxLayoutAlign="center center">
+              <div *ngIf="isRequest">
+                <button mat-raised-button type="button" color="accent" style="margin-right: 5px; flex-direction: column;" (click)="onRejectButtonClick(friend)">Reject</button>
+                <button mat-raised-button type="button" color="primary" (click)="onAcceptButtonClick(friend)">Accept</button>
+              </div>
+              <div *ngIf="friend.isFriend">
+                <button mat-raised-button type="button" color="primary" disabled>Are Friends</button>
+              </div>
+            </span>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="20%"></div>
+</div>

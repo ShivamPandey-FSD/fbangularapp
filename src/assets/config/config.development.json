@@ -1,0 +1,11 @@
+{
+  "env": {
+    "name": "development"
+  },
+  "logging": {
+    "console": true
+  },
+  "apiServer": {
+    "baseURL": "http://localhost:4000/"
+  }
+}

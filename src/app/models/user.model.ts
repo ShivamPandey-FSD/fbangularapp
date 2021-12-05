@@ -1,0 +1,23 @@
+export class User {
+    id: string = '';
+    firstName: string = '';
+    lastName: string = '';
+    gender: string = '';
+    dob: string = '';
+    email: string = '';
+    password: string = '';
+    phone: string = '';
+    city: string = '';
+    state: string = '';
+    pincode: string = '';
+    country: string = '';
+    isAdmin: boolean = false;
+    isActive: boolean = false;
+    photoId: string = '';
+    profession: string = '';
+    isFriend: boolean = false;
+    friendIcon: boolean = false;
+    isRequested: boolean = false;
+    isRejected: boolean = false;
+    isNewUser: boolean = false;
+}

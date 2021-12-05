@@ -1,0 +1,69 @@
+<mat-card class="create-post">
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="card-full-width">
+                <input matInput placeholder="Have anything to share..." formControlName="post" />
+            </mat-form-field>
+            <mat-card-actions align="end">
+                <label for="image-input">
+                    <i class="fa fa-camera camera-position" matTooltip="Upload Picture"></i>
+                </label>
+                <input type="file" class="image-upload" id="image-input" (change)="onPostImageUpload($event)" accept="image/*" />
+                <button [disabled]="!form.valid" mat-raised-button type="submit" color="accent">POST</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<div *ngIf="noPosts">
+    <mat-card class="nopost-card">
+        <mat-card-content>
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            <p class="card-text profession">You do not have any post! Post something...</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div *ngIf="isLoading">
+    <mat-card class="nopost-card">
+        <div style="display: flex; justify-content: center; background: white;">
+            <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+    </mat-card>
+</div>
+
+<div *ngFor="let post of posts">
+    <mat-card class="show-posts">
+        <mat-card class="show-posts">
+            <div fxLayout="row">
+                <span fxFlex="12%">
+                    <img [src]="post.userIcon" class="user-profile-photo" />
+                </span>
+                <span fxFlex="90%">
+                    <div class="show-post-header">{{ post.userName }}</div>
+                    <div class="profession">{{ post.profession }}</div>
+                </span>
+                <span fxFlex="5%" *ngIf="activateUserObject.isAdmin; else activeUsersPost">
+                    <i class="fa fa-ban custom-icon" (click)="onHidePostClick(post)" matTooltip="Hide Post"></i>
+                </span>
+
+                <ng-template #activeUsersPost>
+                    <div fxFlex="5%" *ngIf="post.isMyPost">
+                        <i class="fa fa-ban custom-icon" (click)="onHidePostClick(post)" matTooltip="Hide Post"></i>
+                    </div>
+                </ng-template>
+            </div>
+            <br>
+            <mat-card-content>
+                <div *ngIf="post.isPostImage">
+                    <img mat-card-image [src]="post.postImage"/>
+                </div>
+                <div *ngIf="!post.isPostImage">
+                    <div class="show-posts-body">{{ post.post }}</div>
+                </div>
+                <div class="timer">{{ post.postTimer }} ago</div>
+                <hr class="base-line">
+            </mat-card-content>
+        </mat-card>
+    </mat-card>
+</div>

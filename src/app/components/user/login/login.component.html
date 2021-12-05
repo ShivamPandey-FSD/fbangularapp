@@ -1,0 +1,34 @@
+<mat-card class="login-card">
+    <mat-card-title class="card-title">LOGIN</mat-card-title>
+    <hr class="dialog-title-hr">
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <table class="card-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="card-full-width">
+                            <input matInput placeholder="Email" formControlName="email" />
+                            <mat-error *ngIf="isFieldInvalid('email')">
+                                Please enter registered email
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="card-full-width">
+                            <input matInput placeholder="Password" formControlName="password" type="password" />
+                            <mat-error *ngIf="isFieldInvalid('password')">
+                                Please enter valid password
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+            <mat-card-actions>
+                <button mat-raised-button [disabled]="!form.valid" color="accent" type="submit">LOGIN</button>
+                <button mat-raised-button color="accent" (click)="onForgotPassword()">forgot password</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

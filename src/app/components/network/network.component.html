@@ -1,0 +1,51 @@
+<div class="row">
+  <div fxFlex="15%"></div>
+  <div fxFlex="15%">
+    <app-profile></app-profile>
+  </div>
+  <div fxFlex="3%"></div>
+  <div fxFlex="40%">
+    <div *ngIf="noUsers">
+      <mat-card class="card-style" style="text-align: center;">
+        <mat-card-content>
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          <p class="card-text profession">No registered user available in your network...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="isLoading">
+      <mat-card class="card-style">
+        <div style="display: flex; justify-content: center; background: white;">
+          <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </mat-card>
+    </div>
+    <div class="card-style">
+      <div *ngFor="let user of networkUsers">
+        <mat-card class="show-networks">
+          <div fxLayout="row">
+            <span fxFlex="15%" fxLayoutAlign="center center">
+              <img [src]="user.friendIcon" class="network-photo">
+            </span>
+            <span fxFlex="50%">
+              <div class="show-network-header">{{ user.firstName }} {{ user.lastName }}</div>
+              <div class="profession">{{ user.profession }}</div>
+            </span>
+            <span fxFlex="30%" fxLayoutAlign="center center">
+              <span *ngIf="user.isNewUser">
+                <button mat-raised-button type="button" color="primary" (click)="onRequestButtonClick(user)">Friend Request</button>
+              </span>
+              <div *ngIf="user.isRequested">
+                <button mat-raised-button type="button" color="warning" disabled>Request Pending</button>
+              </div>
+              <div *ngIf="user.isRejected">
+                <button mat-raised-button type="button" color="danger" disabled>Request Rejected</button>
+              </div>
+            </span>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="20%"></div>
+</div>

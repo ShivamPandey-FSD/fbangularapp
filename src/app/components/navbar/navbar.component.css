@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 2px 2px 4px #000000;
+  text-transform: uppercase;
+}
+
+.appName {
+  font-family: 'Passion One', sans-serif;
+  font-size: 25px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.logout-btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 2px 2px 4px #000000;
+  text-transform: uppercase;
+}

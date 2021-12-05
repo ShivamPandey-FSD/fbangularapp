@@ -1,0 +1,42 @@
+.registration-card {
+  max-width: 300px;
+  margin: 90px auto auto auto;
+}
+
+.card-full-width {
+  width: 100%;
+}
+
+.card-title {
+  font-family: 'Passsion One', cursive;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+mat-card-actions {
+  margin: 0 auto;
+}
+
+mat-card-content {
+  margin-top: 20px;
+}
+
+mat-raised-button {
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+}
+
+.formsubmitted-card {
+  margin-top: 250px;
+  background: none;
+  border: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: forestgreen;
+  font-weight: 500;
+}
