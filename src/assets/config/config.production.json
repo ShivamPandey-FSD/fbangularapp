@@ -6,6 +6,6 @@
     "console": true
   },
   "apiServer": {
-    "baseURL": "https://nodejs-fb-app.herokuapp.com/"
+    "baseURL": "https://fb-nodejs-app.herokuapp.com/"
   }
 }
